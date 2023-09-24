@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Loading</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+	<script>
+		function redirectToIndex() {
+			window.location.href = "{{ url_for('index') }}";
+		}
+	</script>
+</head>
+<body>
+	<div class="loading">
+		<h1>Loading...</h1>
+		<p>Please wait while we analyze your facial expression.</p>
+	</div>
+	<script>
+		// Wait for the DOM to be loaded
+		document.addEventListener('DOMContentLoaded', function() {
+			// Call the redirectToIndex function after a delay of 1 second
+			setTimeout(redirectToIndex, 1000);
+		});
+	</script>
+</body>
+</html>

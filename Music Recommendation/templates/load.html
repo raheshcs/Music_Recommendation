@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Loading</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+	<style>
+		.loading {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+			background-color: #f2f2f2;
+		}
+		.loading h1 {
+		font-size: 3rem;
+		margin-bottom: 2rem;
+		color: #333;
+		text-align: center;
+	}
+	
+	.loading p {
+		font-size: 1.5rem;
+		margin-bottom: 2rem;
+		color: #666;
+		text-align: center;
+	}
+	
+	.progress-bar {
+		width: 80%;
+		height: 1.5rem;
+		background-color: #ddd;
+		border-radius: 1rem;
+		overflow: hidden;
+	}
+	
+	.progress {
+		height: 100%;
+		background-color: #6eb5ff;
+		border-radius: 1rem;
+		animation: progress 5s ease-out;
+	}
+	
+	@keyframes progress {
+		from {
+			width: 0%;
+		}
+		to {
+			width: 100%;
+		}
+	}
+</style>
+</head>
+<body>
+	<div class="loading">
+		<h1>Loading...</h1>
+		<p>Please wait while we analyze your facial expression.</p>
+		<div class="progress-bar">
+			<div class="progress"></div>
+		</div>
+	</div>
+	<script>
+		// Wait for the DOM to be loaded
+		document.addEventListener('DOMContentLoaded', function() {
+			// Redirect to index.html after a delay of 5 seconds (the same as the progress bar animation duration)
+			setTimeout(function() {
+				window.location.href = "index";
+			}, 5000);
+		});
+	</script>
+</body>
+</html>
